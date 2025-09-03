@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Hand } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroBackground from '@/assets/hero-background.jpg';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -14,110 +13,138 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.2,
+        delayChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, x: -30 },
+    visible: { opacity: 1, x: 0 }
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, x: 30 },
+    visible: { opacity: 1, x: 0 }
   };
 
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(34, 37, 49, 0.8), rgba(34, 37, 49, 0.9)), url(${heroBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
+      className="min-h-screen flex items-center justify-center py-20 px-4 bg-gradient-to-br from-background to-secondary/20"
     >
-      {/* Animated background particles */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="container mx-auto max-w-7xl">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3]
-          }}
-          transition={{ duration: 4, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ duration: 6, repeat: Infinity }}
-        />
-      </div>
-
-      <motion.div
-        className="container mx-auto px-4 text-center relative z-10"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div variants={itemVariants}>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="gradient-text">John Doe</span>
-          </h1>
-        </motion.div>
-
-        <motion.div variants={itemVariants}>
-          <h2 className="text-xl md:text-2xl text-muted-foreground mb-8 font-light">
-            Full Stack Developer & UI/UX Enthusiast
-          </h2>
-        </motion.div>
-
-        <motion.div variants={itemVariants}>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-            Crafting digital experiences with modern technologies. 
-            Passionate about creating scalable, user-friendly applications 
-            that solve real-world problems.
-          </p>
-        </motion.div>
-
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
-          <Button
-            onClick={scrollToProjects}
-            size="lg"
-            className="hero-gradient text-white px-8 py-3 text-lg font-semibold hover:scale-105 transition-transform duration-300 glow-effect"
-          >
-            View My Work
-          </Button>
-          
-          <div className="flex items-center space-x-4">
-            <Button variant="outline" size="icon" className="glass-card border-primary/30 hover:border-primary transition-colors">
-              <Github className="w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="icon" className="glass-card border-primary/30 hover:border-primary transition-colors">
-              <Linkedin className="w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="icon" className="glass-card border-primary/30 hover:border-primary transition-colors">
-              <Mail className="w-5 h-5" />
-            </Button>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          variants={itemVariants}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="cursor-pointer"
-            onClick={scrollToProjects}
+          {/* Left Content */}
+          <motion.div className="space-y-8" variants={itemVariants}>
+            <div className="space-y-6">
+              <motion.h2 
+                className="text-sm md:text-base font-medium text-muted-foreground tracking-[0.2em] uppercase"
+                variants={itemVariants}
+              >
+                John Doe
+              </motion.h2>
+              
+              <motion.h1 
+                className="text-6xl md:text-8xl lg:text-9xl font-bold leading-none"
+                variants={itemVariants}
+              >
+                <span className="block text-foreground">FULL STACK</span>
+                <span className="block gradient-text">DEVELOPER</span>
+              </motion.h1>
+            </div>
+
+            <motion.p 
+              className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed"
+              variants={itemVariants}
+            >
+              I'm a passionate developer creating modern web applications with 
+              cutting-edge technologies and beautiful user experiences.
+            </motion.p>
+
+            <motion.div 
+              className="flex items-center gap-6 pt-4"
+              variants={itemVariants}
+            >
+              <Button
+                onClick={scrollToProjects}
+                className="hero-gradient text-white px-8 py-6 text-lg font-medium rounded-full hover:scale-105 transition-all duration-300 shadow-lg"
+              >
+                View My Work
+              </Button>
+              
+              <div className="flex items-center gap-3">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="w-12 h-12 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                >
+                  <Github className="w-5 h-5" />
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="w-12 h-12 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="w-12 h-12 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                >
+                  <Mail className="w-5 h-5" />
+                </Button>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Content - Image */}
+          <motion.div 
+            className="relative flex justify-center lg:justify-end"
+            variants={imageVariants}
           >
-            <ChevronDown className="w-8 h-8 text-primary" />
+            <div className="relative">
+              {/* Main Image Container */}
+              <div className="relative w-80 h-96 md:w-96 md:h-[480px] rounded-3xl overflow-hidden bg-gradient-to-br from-muted to-card shadow-2xl">
+                {/* Placeholder for professional photo */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/20 to-accent-secondary/20 flex items-center justify-center">
+                  <div className="text-6xl opacity-40">👨‍💻</div>
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="absolute top-6 right-6 w-4 h-4 bg-primary rounded-full"></div>
+                <div className="absolute bottom-8 left-8 w-3 h-3 bg-accent rounded-full"></div>
+              </div>
+
+              {/* Floating Icon */}
+              <motion.div
+                className="absolute -bottom-6 -left-6 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg"
+                animate={{ 
+                  y: [0, -10, 0],
+                  rotate: [0, 5, -5, 0]
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <Hand className="w-8 h-8 text-primary-foreground" />
+              </motion.div>
+
+              {/* Background Accent */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-accent/30 to-accent-secondary/30 rounded-full blur-xl -z-10"></div>
+            </div>
           </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };
