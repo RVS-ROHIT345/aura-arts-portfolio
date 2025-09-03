@@ -21,6 +21,7 @@ const Navigation = () => {
     { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -37,7 +38,7 @@ const Navigation = () => {
         opacity: isVisible ? 1 : 0 
       }}
       transition={{ duration: 0.3 }}
-      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50"
+      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-max"
     >
       <div className="glass-card px-6 py-3 rounded-full">
         <ul className="flex items-center space-x-8">

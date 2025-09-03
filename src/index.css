@@ -8,32 +8,32 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark portfolio theme */
-    --background: 222 47% 4%;
-    --foreground: 210 40% 98%;
+    /* Vibrant colorful theme */
+    --background: 260 50% 6%;
+    --foreground: 0 0% 98%;
 
-    --card: 222 47% 6%;
-    --card-foreground: 210 40% 98%;
+    --card: 260 50% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222 47% 6%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 260 50% 8%;
+    --popover-foreground: 0 0% 98%;
 
-    /* Vibrant gradient primary colors */
-    --primary: 250 100% 70%;
-    --primary-foreground: 222 47% 4%;
-    --primary-glow: 270 100% 80%;
+    /* Rainbow gradient primary colors */
+    --primary: 320 90% 65%;
+    --primary-foreground: 260 50% 6%;
+    --primary-glow: 280 100% 75%;
 
     /* Glass morphism secondary */
-    --secondary: 222 47% 8%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 260 50% 10%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 222 47% 10%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 260 50% 12%;
+    --muted-foreground: 220 15% 70%;
 
-    /* Accent gradients */
-    --accent: 250 100% 60%;
-    --accent-foreground: 210 40% 98%;
-    --accent-secondary: 270 100% 70%;
+    /* Multi-color accents */
+    --accent: 200 100% 60%;
+    --accent-foreground: 0 0% 98%;
+    --accent-secondary: 60 90% 60%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -45,17 +45,18 @@ All colors MUST be HSL.
     --radius: 1rem;
 
     /* Portfolio specific colors */
-    --hero-gradient-start: 250 100% 70%;
-    --hero-gradient-end: 270 100% 80%;
-    --glass-bg: 222 47% 8%;
-    --glass-border: 250 100% 70%;
-    --success: 142 76% 36%;
-    --warning: 38 92% 50%;
+    --hero-gradient-start: 320 90% 65%;
+    --hero-gradient-end: 200 100% 60%;
+    --hero-gradient-third: 60 90% 60%;
+    --glass-bg: 260 50% 10%;
+    --glass-border: 320 90% 65%;
+    --success: 142 76% 50%;
+    --warning: 45 100% 65%;
     
-    /* Custom gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--hero-gradient-start)) 0%, hsl(var(--hero-gradient-end)) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(var(--glass-bg) / 0.6) 0%, hsl(var(--glass-bg) / 0.3) 100%);
-    --gradient-border: linear-gradient(145deg, hsl(var(--glass-border) / 0.3) 0%, hsl(var(--accent-secondary) / 0.2) 100%);
+    /* Custom rainbow gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--hero-gradient-start)) 0%, hsl(var(--hero-gradient-end)) 50%, hsl(var(--hero-gradient-third)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--glass-bg) / 0.7) 0%, hsl(var(--glass-bg) / 0.4) 100%);
+    --gradient-border: linear-gradient(145deg, hsl(var(--glass-border) / 0.4) 0%, hsl(var(--accent-secondary) / 0.3) 100%);
     
     /* Shadows and glows */
     --shadow-glass: 0 8px 32px hsl(var(--background) / 0.3);
