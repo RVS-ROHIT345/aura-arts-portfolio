@@ -45,6 +45,16 @@ const Hero = () => {
           animate="visible"
         >
 
+          {/* Left Text - "FULL STACK" */}
+          <motion.div 
+            className="absolute left-0 top-1/2 -translate-y-1/2"
+            variants={leftTextVariants}
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-none tracking-tight">
+              FULL STACK
+            </h1>
+          </motion.div>
+
           {/* Center Image Container */}
           <motion.div 
             className="relative z-10"
@@ -76,15 +86,12 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Right Text - "FULL STACK DEVELOPER" */}
+          {/* Right Text - "DEVELOPER" */}
           <motion.div 
             className="absolute right-0 top-1/2 -translate-y-1/2"
             variants={rightTextVariants}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-none tracking-tight">
-              FULL STACK
-            </h1>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-none tracking-tight mt-2">
               DEVELOPER
             </h1>
           </motion.div>
@@ -100,10 +107,10 @@ const Hero = () => {
             </p>
           </motion.div>
 
-          {/* Name Badge - Bottom of FULL STACK */}
+          {/* Name Badge - Top Left */}
           <motion.div 
-            className="absolute right-0 top-1/2 translate-y-8"
-            variants={rightTextVariants}
+            className="absolute top-0 left-0"
+            variants={leftTextVariants}
           >
             <h2 className="text-lg font-medium text-muted-foreground tracking-[0.15em] uppercase">
               JOHN DOE
