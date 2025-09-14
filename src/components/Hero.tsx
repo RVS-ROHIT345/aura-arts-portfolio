@@ -61,7 +61,7 @@ const Hero = () => {
           >
             <div className="relative">
               {/* Main Image */}
-              <div className="w-80 h-96 md:w-96 md:h-[500px] rounded-3xl overflow-hidden bg-gradient-to-br from-muted to-card shadow-2xl">
+              <div className="w-64 h-80 md:w-72 md:h-96 rounded-3xl overflow-hidden bg-gradient-to-br from-muted to-card shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-background flex items-center justify-center">
                   <div className="text-8xl opacity-60">👨‍💻</div>
                 </div>
@@ -85,13 +85,16 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Right Text - "DESIGNER" */}
+          {/* Right Text - "FULL STACK DEVELOPER" */}
           <motion.div 
             className="absolute right-0 top-1/2 -translate-y-1/2"
             variants={rightTextVariants}
           >
-            <h1 className="text-7xl md:text-8xl lg:text-9xl font-black text-foreground leading-none tracking-tight">
-              DESIGNER
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-none tracking-tight">
+              FULL STACK
+            </h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-none tracking-tight mt-2">
+              DEVELOPER
             </h1>
           </motion.div>
 
@@ -106,12 +109,12 @@ const Hero = () => {
             </p>
           </motion.div>
 
-          {/* Name Badge - Top Left */}
+          {/* Name Badge - Bottom of FULL STACK */}
           <motion.div 
-            className="absolute top-0 left-0"
-            variants={leftTextVariants}
+            className="absolute right-0 top-1/2 translate-y-8"
+            variants={rightTextVariants}
           >
-            <h2 className="text-sm font-medium text-muted-foreground tracking-[0.2em] uppercase">
+            <h2 className="text-lg font-medium text-muted-foreground tracking-[0.15em] uppercase">
               JOHN DOE
             </h2>
           </motion.div>

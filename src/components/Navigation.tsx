@@ -34,8 +34,8 @@ const Navigation = () => {
       <div className={`transition-all duration-300 ${
         isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-border/20' : ''
       }`}>
-        <div className="container mx-auto max-w-7xl px-6">
-          <div className="flex items-center justify-between">
+        <div className="container mx-auto max-w-5xl px-6">
+          <div className="flex items-center justify-center gap-8">
             {/* Profile Image */}
             <div className="flex items-center">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent overflow-hidden border-2 border-background shadow-lg">
@@ -46,7 +46,7 @@ const Navigation = () => {
             </div>
 
             {/* Navigation Items */}
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-6">
               {navItems.map((item) => (
                 <button
                   key={item.name}
