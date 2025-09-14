@@ -1,28 +1,24 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
     { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Blogs', href: '#blogs' }
   ];
 
   const scrollToSection = (href: string) => {
@@ -32,27 +28,45 @@ const Navigation = () => {
 
   return (
     <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ 
-        y: isVisible ? 0 : -100, 
-        opacity: isVisible ? 1 : 0 
-      }}
-      transition={{ duration: 0.3 }}
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-max"
+      initial={{ y: 0, opacity: 1 }}
+      className="fixed top-0 left-0 right-0 z-50 py-4"
     >
-      <div className="glass-card px-6 py-3 rounded-full">
-        <ul className="flex items-center space-x-8">
-          {navItems.map((item) => (
-            <li key={item.name}>
-              <button
-                onClick={() => scrollToSection(item.href)}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
-              >
-                {item.name}
-              </button>
-            </li>
-          ))}
-        </ul>
+      <div className={`transition-all duration-300 ${
+        isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-border/20' : ''
+      }`}>
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="flex items-center justify-between">
+            {/* Profile Image */}
+            <div className="flex items-center">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent overflow-hidden border-2 border-background shadow-lg">
+                <div className="w-full h-full bg-muted flex items-center justify-center text-lg font-semibold">
+                  JD
+                </div>
+              </div>
+            </div>
+
+            {/* Navigation Items */}
+            <div className="flex items-center space-x-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300"
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
+
+            {/* Contact Button */}
+            <Button
+              onClick={() => scrollToSection('#contact')}
+              className="bg-foreground text-background hover:bg-foreground/90 px-6 py-2 rounded-full font-medium"
+            >
+              Contact
+            </Button>
+          </div>
+        </div>
       </div>
     </motion.nav>
   );
