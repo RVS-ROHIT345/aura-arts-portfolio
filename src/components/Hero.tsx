@@ -44,15 +44,6 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Left Text - "DIGITAL" */}
-          <motion.div 
-            className="absolute left-0 top-1/2 -translate-y-1/2"
-            variants={leftTextVariants}
-          >
-            <h1 className="text-7xl md:text-8xl lg:text-9xl font-black text-foreground leading-none tracking-tight">
-              DIGITAL
-            </h1>
-          </motion.div>
 
           {/* Center Image Container */}
           <motion.div 
