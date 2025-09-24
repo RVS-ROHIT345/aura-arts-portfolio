@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Hand } from 'lucide-react';
+import { Code2, Download, ArrowRight, Sparkles } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   const containerVariants = {
@@ -7,25 +8,28 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.2,
+        delayChildren: 0.1
       }
     }
   };
 
-  const leftTextVariants = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0 }
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6 }
+    }
   };
 
-  const rightTextVariants = {
-    hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0 }
-  };
-
-  const centerVariants = {
+  const scaleIn = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1 }
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { duration: 0.6 }
+    }
   };
 
   return (
@@ -33,88 +37,108 @@ const Hero = () => {
       id="hero" 
       className="min-h-screen flex items-center justify-center pt-24 pb-20 px-6 relative overflow-hidden"
     >
-      {/* Background Decorative Elements */}
-      <div className="absolute top-32 left-20 w-16 h-16 bg-primary/20 rounded-full blur-sm"></div>
-      <div className="absolute top-80 right-32 w-8 h-8 bg-accent/30 rounded-full"></div>
+      {/* Enhanced Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+      <motion.div 
+        className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl"
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3]
+        }}
+        transition={{ duration: 4, repeat: Infinity }}
+      ></motion.div>
+      <motion.div 
+        className="absolute bottom-20 right-10 w-24 h-24 bg-gradient-to-br from-accent/30 to-primary/30 rounded-full blur-xl"
+        animate={{ 
+          scale: [1, 1.3, 1],
+          opacity: [0.2, 0.4, 0.2]
+        }}
+        transition={{ duration: 5, repeat: Infinity, delay: 2 }}
+      ></motion.div>
       
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-6xl text-center">
         <motion.div
-          className="relative flex items-center justify-center min-h-[600px]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          className="space-y-8"
         >
-
-          {/* Left Text - "FULL STACK" */}
-          <motion.div 
-            className="absolute left-0 top-1/2 -translate-y-1/2"
-            variants={leftTextVariants}
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-none tracking-tight">
-              FULL STACK
-            </h1>
+          {/* Name Tag */}
+          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 backdrop-blur-sm border border-border/50">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium text-muted-foreground tracking-wide">JOHN DOE</span>
           </motion.div>
 
-          {/* Center Image Container */}
-          <motion.div 
-            className="relative z-10"
-            variants={centerVariants}
-          >
-            <div className="relative">
-              {/* Main Image */}
-              <div className="w-64 h-80 md:w-72 md:h-96 rounded-3xl overflow-hidden bg-gradient-to-br from-muted to-card shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-background flex items-center justify-center">
-                  <div className="text-8xl opacity-60">👨‍💻</div>
-                </div>
-              </div>
-
-              {/* Floating Wave Icon */}
-              <motion.div
-                className="absolute -bottom-8 -left-8 w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-xl"
-                animate={{ 
-                  y: [0, -15, 0],
-                  rotate: [0, 10, -10, 0]
-                }}
-                transition={{ 
-                  duration: 5, 
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <Hand className="w-10 h-10 text-primary-foreground" />
-              </motion.div>
+          {/* Main Title */}
+          <motion.div variants={fadeInUp} className="space-y-4">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-none">
+              <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
+                FULL STACK
+              </span>
+              <br />
+              <span className="text-foreground">DEVELOPER</span>
+            </h1>
+            <div className="flex items-center justify-center gap-4">
+              <motion.div 
+                className="h-[2px] w-16 bg-gradient-to-r from-transparent to-primary"
+                variants={scaleIn}
+              ></motion.div>
+              <Code2 className="w-6 h-6 text-primary" />
+              <motion.div 
+                className="h-[2px] w-16 bg-gradient-to-l from-transparent to-primary"
+                variants={scaleIn}
+              ></motion.div>
             </div>
           </motion.div>
 
-          {/* Right Text - "DEVELOPER" */}
-          <motion.div 
-            className="absolute right-0 top-1/2 -translate-y-1/2"
-            variants={rightTextVariants}
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-none tracking-tight">
-              DEVELOPER
-            </h1>
+          {/* Profile Image with Enhanced Styling */}
+          <motion.div variants={scaleIn} className="relative inline-block">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden bg-gradient-to-br from-muted to-card shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-background flex items-center justify-center">
+                  <div className="text-6xl md:text-7xl">👨‍💻</div>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Bottom Description Text */}
-          <motion.div 
-            className="absolute bottom-0 right-0 max-w-md"
-            variants={rightTextVariants}
-          >
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a US-based digital designer and<br />
-              Framer developer
+          {/* Description */}
+          <motion.div variants={fadeInUp} className="max-w-2xl mx-auto space-y-4">
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+              Creating digital experiences that blend
+              <span className="text-primary font-semibold"> innovative design </span>
+              with
+              <span className="text-accent font-semibold"> robust development</span>
             </p>
           </motion.div>
 
-          {/* Name Badge - Top Left */}
-          <motion.div 
-            className="absolute top-0 left-0"
-            variants={leftTextVariants}
-          >
-            <h2 className="text-lg font-medium text-muted-foreground tracking-[0.15em] uppercase">
-              JOHN DOE
-            </h2>
+          {/* CTA Buttons */}
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+            <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              View My Work
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button variant="outline" size="lg" className="group border-primary/30 hover:border-primary hover:bg-primary/10 px-8 py-3 rounded-full font-semibold text-lg">
+              <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+              Download CV
+            </Button>
+          </motion.div>
+
+          {/* Tech Stack Pills */}
+          <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-3 pt-12">
+            {['React', 'Node.js', 'TypeScript', 'Next.js', 'Python', 'AWS'].map((tech, index) => (
+              <motion.div
+                key={tech}
+                className="px-4 py-2 bg-muted/50 backdrop-blur-sm rounded-full border border-border/50 text-sm font-medium text-muted-foreground hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all duration-300 cursor-default"
+                whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 + index * 0.1 }}
+              >
+                {tech}
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
       </div>
