@@ -35,7 +35,7 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center pt-24 pb-20 px-6 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6 relative overflow-hidden"
     >
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
@@ -70,8 +70,8 @@ const Hero = () => {
           </motion.div>
 
           {/* Main Title */}
-          <motion.div variants={fadeInUp} className="space-y-4">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-none">
+          <motion.div variants={fadeInUp} className="space-y-2 sm:space-y-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight sm:leading-none">
               <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
                 FULL STACK
               </span>
@@ -95,17 +95,17 @@ const Hero = () => {
           <motion.div variants={scaleIn} className="relative inline-block">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden bg-gradient-to-br from-muted to-card shadow-2xl">
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden bg-gradient-to-br from-muted to-card shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-background flex items-center justify-center">
-                  <div className="text-6xl md:text-7xl">👨‍💻</div>
+                  <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl">👨‍💻</div>
                 </div>
               </div>
             </div>
           </motion.div>
 
           {/* Description */}
-          <motion.div variants={fadeInUp} className="max-w-2xl mx-auto space-y-4">
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+          <motion.div variants={fadeInUp} className="max-w-2xl mx-auto space-y-4 px-4 sm:px-0">
+            <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed text-center">
               Creating digital experiences that blend
               <span className="text-primary font-semibold"> innovative design </span>
               with
@@ -114,23 +114,23 @@ const Hero = () => {
           </motion.div>
 
           {/* CTA Buttons */}
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-            <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-6 sm:pt-8 px-4 sm:px-0">
+            <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto">
               View My Work
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" className="group border-primary/30 hover:border-primary hover:bg-primary/10 px-8 py-3 rounded-full font-semibold text-lg">
-              <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+            <Button variant="outline" size="lg" className="group border-primary/30 hover:border-primary hover:bg-primary/10 px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg w-full sm:w-auto">
+              <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
               Download CV
             </Button>
           </motion.div>
 
           {/* Tech Stack Pills */}
-          <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-3 pt-12">
+          <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-8 sm:pt-12 px-4 sm:px-0">
             {['React', 'Node.js', 'TypeScript', 'Next.js', 'Python', 'AWS'].map((tech, index) => (
               <motion.div
                 key={tech}
-                className="px-4 py-2 bg-muted/50 backdrop-blur-sm rounded-full border border-border/50 text-sm font-medium text-muted-foreground hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all duration-300 cursor-default"
+                className="px-3 py-1.5 sm:px-4 sm:py-2 bg-muted/50 backdrop-blur-sm rounded-full border border-border/50 text-xs sm:text-sm font-medium text-muted-foreground hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all duration-300 cursor-default"
                 whileHover={{ scale: 1.05 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

@@ -29,24 +29,24 @@ const Navigation = () => {
   return (
     <motion.nav
       initial={{ y: 0, opacity: 1 }}
-      className="fixed top-0 left-0 right-0 z-50 py-4"
+      className="fixed top-0 left-0 right-0 z-50 py-2 sm:py-4"
     >
       <div className={`transition-all duration-300 ${
         isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-border/20' : ''
       }`}>
-        <div className="container mx-auto max-w-5xl px-6">
-          <div className="flex items-center justify-center gap-8">
+        <div className="container mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="flex items-center justify-between sm:justify-center gap-2 sm:gap-8">
             {/* Profile Image */}
             <div className="flex items-center">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent overflow-hidden border-2 border-background shadow-lg">
-                <div className="w-full h-full bg-muted flex items-center justify-center text-lg font-semibold">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary to-accent overflow-hidden border-2 border-background shadow-lg">
+                <div className="w-full h-full bg-muted flex items-center justify-center text-sm sm:text-lg font-semibold">
                   JD
                 </div>
               </div>
             </div>
 
-            {/* Navigation Items */}
-            <div className="flex items-center space-x-6">
+            {/* Navigation Items - Hidden on mobile */}
+            <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
               {navItems.map((item) => (
                 <button
                   key={item.name}
@@ -61,9 +61,10 @@ const Navigation = () => {
             {/* Contact Button */}
             <Button
               onClick={() => scrollToSection('#contact')}
-              className="bg-foreground text-background hover:bg-foreground/90 px-6 py-2 rounded-full font-medium"
+              className="bg-foreground text-background hover:bg-foreground/90 px-3 py-1.5 sm:px-6 sm:py-2 rounded-full font-medium text-sm"
             >
-              Contact
+              <span className="hidden sm:inline">Contact</span>
+              <span className="sm:hidden">📧</span>
             </Button>
           </div>
         </div>

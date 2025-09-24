@@ -16,9 +16,9 @@ const Index = () => {
       <Contact />
       
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-border/50">
+      <footer className="py-6 sm:py-8 px-4 sm:px-6 border-t border-border/50">
         <div className="container mx-auto max-w-6xl text-center">
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground text-sm sm:text-base">
             © 2024 John Doe. Built with React, TypeScript & Tailwind CSS.
           </p>
         </div>

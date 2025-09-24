@@ -62,7 +62,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 px-4 bg-secondary/20">
+    <section id="projects" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-secondary/20">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           ref={ref}
@@ -71,10 +71,10 @@ const Projects = () => {
           animate={inView ? "visible" : "hidden"}
           className="text-center mb-16"
         >
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-6">
+          <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             Featured <span className="gradient-text">Projects</span>
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <motion.p variants={itemVariants} className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             A showcase of my recent work, featuring modern web applications built with 
             cutting-edge technologies and best practices.
           </motion.p>
@@ -84,14 +84,14 @@ const Projects = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-2 gap-8"
+          className="grid lg:grid-cols-2 gap-6 sm:gap-8"
         >
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               variants={itemVariants}
               whileHover={{ y: -10 }}
-              className={`glass-card rounded-3xl overflow-hidden group ${
+              className={`glass-card rounded-2xl sm:rounded-3xl overflow-hidden group ${
                 project.featured ? 'lg:col-span-2' : ''
               }`}
             >
@@ -100,14 +100,14 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-64 lg:h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-bold">{project.title}</h3>
+                <div className="p-4 sm:p-6 lg:p-8">
+                  <div className="flex items-start sm:items-center justify-between mb-4 flex-col sm:flex-row gap-2 sm:gap-0">
+                    <h3 className="text-xl sm:text-2xl font-bold">{project.title}</h3>
                     {project.featured && (
                       <Badge className="bg-primary/20 text-primary border-primary/30">
                         Featured
@@ -115,38 +115,38 @@ const Projects = () => {
                     )}
                   </div>
                   
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
                     {project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                     {project.tech.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="glass-card">
+                      <Badge key={tech} variant="secondary" className="glass-card text-xs sm:text-sm">
                         {tech}
                       </Badge>
                     ))}
                   </div>
                   
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center flex-col sm:flex-row gap-2 sm:gap-4">
                     <Button
                       size="sm"
-                      className="hero-gradient text-white hover:scale-105 transition-transform"
+                      className="hero-gradient text-white hover:scale-105 transition-transform w-full sm:w-auto"
                       asChild
                     >
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
+                        <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
+                        <span className="text-sm">Live Demo</span>
                       </a>
                     </Button>
                     <Button
                       variant="outline"
                       size="sm"
-                      className="glass-card border-primary/30 hover:border-primary"
+                      className="glass-card border-primary/30 hover:border-primary w-full sm:w-auto"
                       asChild
                     >
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
+                        <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
+                        <span className="text-sm">Code</span>
                       </a>
                     </Button>
                   </div>

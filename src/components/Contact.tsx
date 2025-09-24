@@ -86,7 +86,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           ref={ref}
@@ -95,24 +95,24 @@ const Contact = () => {
           animate={inView ? "visible" : "hidden"}
           className="text-center mb-16"
         >
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-6">
+          <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             Get In <span className="gradient-text">Touch</span>
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <motion.p variants={itemVariants} className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             Have a project in mind or just want to chat? I'd love to hear from you. 
             Let's create something amazing together.
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
           <motion.div
             variants={itemVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             transition={{ delay: 0.3 }}
           >
-            <div className="glass-card p-8 rounded-3xl">
-              <h3 className="text-2xl font-semibold mb-8">Send me a message</h3>
+            <div className="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8">Send me a message</h3>
               
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div>
@@ -164,7 +164,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full hero-gradient text-white py-3 text-lg font-semibold hover:scale-105 transition-transform duration-300"
+                  className="w-full hero-gradient text-white py-2.5 sm:py-3 text-base sm:text-lg font-semibold hover:scale-105 transition-transform duration-300"
                 >
                   {isSubmitting ? (
                     <motion.div
@@ -188,22 +188,22 @@ const Contact = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             transition={{ delay: 0.5 }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             {contactInfo.map((info, index) => (
               <motion.div
                 key={info.label}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, x: 10 }}
-                className="glass-card p-6 rounded-2xl cursor-pointer group"
+                className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl cursor-pointer group"
               >
                 <a href={info.href} className="flex items-center">
-                  <div className="p-4 bg-primary/10 rounded-xl mr-6 group-hover:bg-primary/20 transition-colors">
-                    <info.icon className="w-6 h-6 text-primary" />
+                  <div className="p-3 sm:p-4 bg-primary/10 rounded-lg sm:rounded-xl mr-4 sm:mr-6 group-hover:bg-primary/20 transition-colors">
+                    <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg">{info.label}</h4>
-                    <p className="text-muted-foreground">{info.value}</p>
+                    <h4 className="font-semibold text-base sm:text-lg">{info.label}</h4>
+                    <p className="text-muted-foreground text-sm sm:text-base">{info.value}</p>
                   </div>
                 </a>
               </motion.div>
@@ -211,10 +211,10 @@ const Contact = () => {
 
             <motion.div
               variants={itemVariants}
-              className="glass-card p-8 rounded-3xl text-center"
+              className="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl text-center"
             >
-              <h4 className="text-xl font-semibold mb-4">Let's Connect</h4>
-              <p className="text-muted-foreground mb-6">
+              <h4 className="text-lg sm:text-xl font-semibold mb-4">Let's Connect</h4>
+              <p className="text-muted-foreground mb-6 text-sm sm:text-base">
                 I'm always interested in hearing about new opportunities and 
                 exciting projects. Don't hesitate to reach out!
               </p>
