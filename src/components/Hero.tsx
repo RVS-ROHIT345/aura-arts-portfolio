@@ -1,24 +1,20 @@
 import { motion } from 'framer-motion';
-import { Code2, Download, ArrowRight, Sparkles, Github, Linkedin, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Code2, Sparkles, Github, Linkedin, ExternalLink, ArrowRight, FileText } from 'lucide-react';
 
 const Hero = () => {
   const scrollToExperience = () => {
+    console.log('View My Work button clicked!');
     const experienceSection = document.getElementById('experience');
+    console.log('Experience section found:', experienceSection);
     if (experienceSection) {
-      experienceSection.scrollIntoView({ behavior: 'smooth' });
+      experienceSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+      console.log('Scrolling to experience section');
+    } else {
+      console.error('Experience section not found!');
     }
-  };
-
-  const downloadCV = () => {
-    // Replace with your actual resume file URL
-    const resumeUrl = '/resume.pdf'; // Update this with your actual resume file path
-    const link = document.createElement('a');
-    link.href = resumeUrl;
-    link.download = 'John_Doe_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   };
 
   const techStackData = [
@@ -140,26 +136,37 @@ const Hero = () => {
             </p>
           </motion.div>
 
-          {/* CTA Buttons */}
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-6 sm:pt-8 px-4 sm:px-0">
-            <Button 
-              size="lg" 
-              onClick={scrollToExperience}
-              className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+          {/* CTA Button and Link */}
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 sm:pt-8 px-4 sm:px-0 relative z-10">
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Button click event triggered');
+                scrollToExperience();
+              }}
+              className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center cursor-pointer relative z-20"
+              style={{ pointerEvents: 'auto' }}
             >
               View My Work
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              onClick={downloadCV}
-              className="group border-primary/30 hover:border-primary hover:bg-primary/10 px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg w-full sm:w-auto"
+            </button>
+            <a 
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                console.log('Resume link clicked!');
+                // Let the default behavior handle opening the file
+              }}
+              className="group border border-primary/30 hover:border-primary hover:bg-primary/10 text-foreground px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 inline-flex items-center justify-center relative z-20"
+              style={{ pointerEvents: 'auto' }}
             >
-              <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
-              Download CV
-            </Button>
+              <FileText className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
+              View Resume
+            </a>
           </motion.div>
+
 
           {/* Social Links */}
           <motion.div variants={fadeInUp} className="flex items-center justify-center gap-4 pt-4">
