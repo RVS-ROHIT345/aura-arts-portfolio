@@ -140,6 +140,27 @@ const Hero = () => {
             </p>
           </motion.div>
 
+          {/* CTA Buttons */}
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-6 sm:pt-8 px-4 sm:px-0">
+            <Button 
+              size="lg" 
+              onClick={scrollToExperience}
+              className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+            >
+              View My Work
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              onClick={downloadCV}
+              className="group border-primary/30 hover:border-primary hover:bg-primary/10 px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg w-full sm:w-auto"
+            >
+              <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
+              Download CV
+            </Button>
+          </motion.div>
+
           {/* Social Links */}
           <motion.div variants={fadeInUp} className="flex items-center justify-center gap-4 pt-4">
             <motion.a
@@ -166,27 +187,6 @@ const Hero = () => {
               <span className="text-sm font-medium">GitHub</span>
               <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
             </motion.a>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-6 sm:pt-8 px-4 sm:px-0">
-            <Button 
-              size="lg" 
-              onClick={scrollToExperience}
-              className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
-            >
-              View My Work
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              onClick={downloadCV}
-              className="group border-primary/30 hover:border-primary hover:bg-primary/10 px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg w-full sm:w-auto"
-            >
-              <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
-              Download CV
-            </Button>
           </motion.div>
 
           {/* Enhanced Tech Stack */}
