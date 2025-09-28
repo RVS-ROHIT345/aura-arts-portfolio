@@ -1,8 +1,35 @@
 import { motion } from 'framer-motion';
-import { Code2, Download, ArrowRight, Sparkles } from 'lucide-react';
+import { Code2, Download, ArrowRight, Sparkles, Github, Linkedin, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
+  const scrollToExperience = () => {
+    const experienceSection = document.getElementById('experience');
+    if (experienceSection) {
+      experienceSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const downloadCV = () => {
+    // Replace with your actual resume file URL
+    const resumeUrl = '/resume.pdf'; // Update this with your actual resume file path
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = 'John_Doe_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const techStackData = [
+    { name: 'React', icon: '⚛️' },
+    { name: 'Node.js', icon: '🟢' },
+    { name: 'TypeScript', icon: '🔷' },
+    { name: 'Next.js', icon: '▲' },
+    { name: 'Python', icon: '🐍' },
+    { name: 'AWS', icon: '☁️' },
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -113,30 +140,85 @@ const Hero = () => {
             </p>
           </motion.div>
 
+          {/* Social Links */}
+          <motion.div variants={fadeInUp} className="flex items-center justify-center gap-4 pt-4">
+            <motion.a
+              href="https://linkedin.com/in/your-profile" // Replace with your LinkedIn URL
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 px-4 py-2 bg-muted/50 backdrop-blur-sm rounded-full border border-border/50 text-muted-foreground hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Linkedin className="w-4 h-4" />
+              <span className="text-sm font-medium">LinkedIn</span>
+              <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+            </motion.a>
+            <motion.a
+              href="https://github.com/your-username" // Replace with your GitHub URL
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 px-4 py-2 bg-muted/50 backdrop-blur-sm rounded-full border border-border/50 text-muted-foreground hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Github className="w-4 h-4" />
+              <span className="text-sm font-medium">GitHub</span>
+              <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+            </motion.a>
+          </motion.div>
+
           {/* CTA Buttons */}
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-6 sm:pt-8 px-4 sm:px-0">
-            <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              onClick={scrollToExperience}
+              className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+            >
               View My Work
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" className="group border-primary/30 hover:border-primary hover:bg-primary/10 px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg w-full sm:w-auto">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              onClick={downloadCV}
+              className="group border-primary/30 hover:border-primary hover:bg-primary/10 px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg w-full sm:w-auto"
+            >
               <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
               Download CV
             </Button>
           </motion.div>
 
-          {/* Tech Stack Pills */}
-          <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-8 sm:pt-12 px-4 sm:px-0">
-            {['React', 'Node.js', 'TypeScript', 'Next.js', 'Python', 'AWS'].map((tech, index) => (
+          {/* Enhanced Tech Stack */}
+          <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-8 sm:pt-12 px-4 sm:px-0">
+            {techStackData.map((tech, index) => (
               <motion.div
-                key={tech}
-                className="px-3 py-1.5 sm:px-4 sm:py-2 bg-muted/50 backdrop-blur-sm rounded-full border border-border/50 text-xs sm:text-sm font-medium text-muted-foreground hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all duration-300 cursor-default"
-                whileHover={{ scale: 1.05 }}
+                key={tech.name}
+                className="group relative flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 bg-gradient-to-r from-muted/50 to-muted/30 backdrop-blur-sm rounded-full border border-border/50 text-sm sm:text-base font-medium text-muted-foreground hover:text-foreground transition-all duration-300 cursor-default overflow-hidden"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 8px 25px -8px hsl(var(--primary) / 0.3)"
+                }}
+                whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 + index * 0.1 }}
               >
-                {tech}
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                {/* Icon */}
+                <span className="text-lg group-hover:scale-110 transition-transform duration-300 relative z-10">
+                  {tech.icon}
+                </span>
+                
+                {/* Tech name */}
+                <span className="relative z-10 group-hover:text-primary transition-colors duration-300">
+                  {tech.name}
+                </span>
+                
+                {/* Animated border */}
+                <div className="absolute inset-0 rounded-full border border-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.div>
             ))}
           </motion.div>
