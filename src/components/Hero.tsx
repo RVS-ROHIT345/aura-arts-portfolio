@@ -66,7 +66,7 @@ const Hero = () => {
           {/* Name Tag */}
           <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 backdrop-blur-sm border border-border/50">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-muted-foreground tracking-wide">JOHN DOE</span>
+            <span className="text-sm font-medium text-muted-foreground tracking-wide">Venkata Satya Rohit Ramena</span>
           </motion.div>
 
           {/* Main Title */}

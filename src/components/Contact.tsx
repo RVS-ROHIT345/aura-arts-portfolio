@@ -53,19 +53,19 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'john.doe@example.com',
-      href: 'mailto:john.doe@example.com'
+      value: 'ramenavenkata@gmail.com',
+      href: 'mailto:ramenavenkata@gmail.com'
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567'
+      value: '+1 (609) 783-9178',
+      href: 'tel:+1609-783-9178'
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Fairfax, VA, USA',
       href: '#'
     }
   ];

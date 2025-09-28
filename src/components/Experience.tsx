@@ -4,41 +4,41 @@ import { Calendar, MapPin, Building2 } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      title: "Senior Software Engineer",
-      company: "Tech Solutions Inc.",
-      location: "San Francisco, CA",
-      duration: "2022 - Present",
+      title: "Software Developer",
+      company: "Freddie Mac",
+      location: "McLean, Virginia, USA",
+      duration: "June 2024 - Present",
       description: [
-        "Led development of scalable web applications using React and Node.js",
-        "Mentored junior developers and conducted code reviews",
-        "Implemented CI/CD pipelines reducing deployment time by 60%",
-        "Collaborated with cross-functional teams on product strategy"
+        "Migrated 30% of a legacy monolith to Spring Boot microservices, boosting modularity, fault isolation, and reducing deployment risks. Leading to greater system reliability and maintainability.",
+        "Engineered Angular Reactive Forms with custom validators, cutting data entry errors by 25% and streamlining the mortgage loan process through real-time validation and improved user experience.",
+        "Optimized backend performance with SQL tuning and async handling, reducing API response times from 1.2s to 400ms and increasing processing throughput by 30%.",
+        "Deployed containerized apps on AWS ECS (Fargate) using Docker, enabling autoscaling, blue-green deployments, and seamless production releases."
       ]
     },
     {
-      title: "Full Stack Developer",
-      company: "Digital Innovations LLC",
-      location: "Austin, TX", 
-      duration: "2020 - 2022",
+      title: "Software Developer",
+      company: "Cognizant",
+      location: "Chennai, Tamil Nadu, India", 
+      duration: "May 2020 - Jan 2023",
       description: [
-        "Built responsive web applications with modern JavaScript frameworks",
-        "Developed RESTful APIs and integrated third-party services",
-        "Optimized database queries improving performance by 40%",
-        "Participated in agile development processes and sprint planning"
+        "Built and scaled web applications with React.js, Angular, and Spring Boot, collaborating with UX designers and stakeholders to deliver customized, high-performing solutions that improved client satisfaction.",
+        "Optimized REST APIs and React.js state management (Redux, Context API), boosting data flow efficiency and responsiveness across booking and transaction modules.",
+        "Enhanced testing coverage with Playwright and Jest, reducing post-release defects and regression issues by 40%, ensuring stable and reliable product releases.",
+        "Developed a real-time bus ticket booking system with ReactJS, Express.js, and MongoDB, enabling secure transactions, dynamic seat availability, and higher user engagement."
       ]
     },
-    {
-      title: "Junior Developer",
-      company: "StartupXYZ",
-      location: "Remote",
-      duration: "2019 - 2020",
-      description: [
-        "Created interactive user interfaces using React and CSS animations",
-        "Worked closely with designers to implement pixel-perfect designs",
-        "Contributed to open-source projects and internal tools",
-        "Gained experience in version control and collaborative development"
-      ]
-    }
+    // {
+    //   title: "Junior Developer",
+    //   company: "StartupXYZ",
+    //   location: "Remote",
+    //   duration: "2019 - 2020",
+    //   description: [
+    //     "Created interactive user interfaces using React and CSS animations",
+    //     "Worked closely with designers to implement pixel-perfect designs",
+    //     "Contributed to open-source projects and internal tools",
+    //     "Gained experience in version control and collaborative development"
+    //   ]
+    // }
   ];
 
   const containerVariants = {
