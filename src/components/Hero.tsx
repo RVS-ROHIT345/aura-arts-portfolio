@@ -155,6 +155,11 @@ const Hero = () => {
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-6 sm:pt-8 px-4 sm:px-0">
             <a
               href="#experience"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+                if (history.replaceState) history.replaceState(null, '', '#experience');
+              }}
               className="group inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
             >
               View My Work
@@ -162,7 +167,8 @@ const Hero = () => {
             </a>
             <a
               href="/resume.pdf"
-              download="John_Doe_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center justify-center border border-primary/30 hover:border-primary hover:bg-primary/10 px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg w-full sm:w-auto transition-all duration-300"
             >
               <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
