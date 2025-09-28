@@ -3,23 +3,6 @@ import { Code2, Download, ArrowRight, Sparkles, Github, Linkedin, ExternalLink }
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
-  const scrollToExperience = () => {
-    const experienceSection = document.getElementById('experience');
-    if (experienceSection) {
-      experienceSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const downloadCV = () => {
-    // Replace with your actual resume file URL
-    const resumeUrl = '/resume.pdf'; // Update this with your actual resume file path
-    const link = document.createElement('a');
-    link.href = resumeUrl;
-    link.download = 'John_Doe_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
 
   const techStackData = [
     { name: 'React', icon: '⚛️' },
@@ -168,25 +151,23 @@ const Hero = () => {
             </motion.a>
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* CTA Links */}
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-6 sm:pt-8 px-4 sm:px-0">
-            <Button 
-              size="lg" 
-              onClick={scrollToExperience}
-              className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+            <a
+              href="#experience"
+              className="group inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
             >
               View My Work
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              onClick={downloadCV}
-              className="group border-primary/30 hover:border-primary hover:bg-primary/10 px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg w-full sm:w-auto"
+            </a>
+            <a
+              href="/resume.pdf"
+              download="John_Doe_Resume.pdf"
+              className="group inline-flex items-center justify-center border border-primary/30 hover:border-primary hover:bg-primary/10 px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-semibold text-base sm:text-lg w-full sm:w-auto transition-all duration-300"
             >
               <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
               Download CV
-            </Button>
+            </a>
           </motion.div>
 
           {/* Enhanced Tech Stack */}
