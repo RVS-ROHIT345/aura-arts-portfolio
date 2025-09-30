@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code2, Sparkles, Github, Linkedin, ExternalLink, ArrowRight, FileText } from 'lucide-react';
+import { Code2, Sparkles, Github, Linkedin, ExternalLink, ArrowRight, FileText, Server, Database, Smartphone, Globe, Palette } from 'lucide-react';
 
 const Hero = () => {
   const scrollToExperience = () => {
@@ -17,13 +17,26 @@ const Hero = () => {
     }
   };
 
-  const techStackData = [
+  const skillsData = [
     { name: 'React', icon: '⚛️' },
-    { name: 'Node.js', icon: '🟢' },
     { name: 'TypeScript', icon: '🔷' },
     { name: 'Next.js', icon: '▲' },
+    { name: 'Node.js', icon: '🟢' },
     { name: 'Python', icon: '🐍' },
+    { name: 'Java', icon: '☕' },
+    { name: 'PostgreSQL', icon: '🐘' },
+    { name: 'MongoDB', icon: '🍃' },
+    { name: 'Redis', icon: '🔴' },
+    { name: 'React Native', icon: '📱' },
+    { name: 'Flutter', icon: '🦋' },
+    { name: 'HTML5', icon: '🌐' },
+    { name: 'CSS3', icon: '🎨' },
+    { name: 'JavaScript ES6+', icon: '⚡' },
+    { name: 'Figma', icon: '🎨' },
+    { name: 'Adobe XD', icon: '🎯' },
+    { name: 'Design Systems', icon: '🎭' },
     { name: 'AWS', icon: '☁️' },
+    { name: 'Azure', icon: '🔵' },
   ];
 
   const containerVariants = {
@@ -152,7 +165,7 @@ const Hero = () => {
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
             <a 
-              href="/resume.pdf"
+              href="https://drive.google.com/file/d/1wcbsdtratpOZZSbiYmqJdsPWcu7XQSlG/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => {
@@ -171,7 +184,7 @@ const Hero = () => {
           {/* Social Links */}
           <motion.div variants={fadeInUp} className="flex items-center justify-center gap-4 pt-4">
             <motion.a
-              href="https://linkedin.com/in/your-profile" // Replace with your LinkedIn URL
+              href="https://www.linkedin.com/in/venakatasatyarohitramena/" // Replace with your LinkedIn URL
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 px-4 py-2 bg-muted/50 backdrop-blur-sm rounded-full border border-border/50 text-muted-foreground hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all duration-300"
@@ -183,7 +196,7 @@ const Hero = () => {
               <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
             </motion.a>
             <motion.a
-              href="https://github.com/your-username" // Replace with your GitHub URL
+              href="https://github.com/RVS-ROHIT345" // Replace with your GitHub URL
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 px-4 py-2 bg-muted/50 backdrop-blur-sm rounded-full border border-border/50 text-muted-foreground hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all duration-300"
@@ -196,38 +209,43 @@ const Hero = () => {
             </motion.a>
           </motion.div>
 
-          {/* Enhanced Tech Stack */}
-          <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-8 sm:pt-12 px-4 sm:px-0">
-            {techStackData.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                className="group relative flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 bg-gradient-to-r from-muted/50 to-muted/30 backdrop-blur-sm rounded-full border border-border/50 text-sm sm:text-base font-medium text-muted-foreground hover:text-foreground transition-all duration-300 cursor-default overflow-hidden"
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: "0 8px 25px -8px hsl(var(--primary) / 0.3)"
+          {/* Seamless Horizontal Skills Animation */}
+          <motion.div variants={fadeInUp} className="pt-8 sm:pt-12 px-4 sm:px-0">
+            <div className="relative overflow-hidden">
+              <div 
+                className="flex gap-4 sm:gap-6 animate-scroll"
+                style={{ 
+                  width: "max-content",
+                  animation: "scroll 180s linear infinite"
                 }}
-                whileTap={{ scale: 0.98 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 + index * 0.1 }}
               >
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* Icon */}
-                <span className="text-lg group-hover:scale-110 transition-transform duration-300 relative z-10">
-                  {tech.icon}
-                </span>
-                
-                {/* Tech name */}
-                <span className="relative z-10 group-hover:text-primary transition-colors duration-300">
-                  {tech.name}
-                </span>
-                
-                {/* Animated border */}
-                <div className="absolute inset-0 rounded-full border border-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </motion.div>
-            ))}
+                {/* Create multiple sets for seamless loop */}
+                {[...Array(4)].map((_, setIndex) => 
+                  skillsData.map((skill, index) => (
+                    <div
+                      key={`set-${setIndex}-${skill.name}-${index}`}
+                      className="group relative flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 bg-gradient-to-r from-muted/50 to-muted/30 backdrop-blur-sm rounded-full border border-border/50 text-sm sm:text-base font-medium text-muted-foreground hover:text-foreground transition-all duration-300 cursor-default overflow-hidden whitespace-nowrap flex-shrink-0 hover:scale-105 hover:shadow-lg"
+                    >
+                      {/* Gradient overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Icon */}
+                      <span className="text-lg group-hover:scale-110 transition-transform duration-300 relative z-10">
+                        {typeof skill.icon === 'string' ? skill.icon : <skill.icon className="w-4 h-4" />}
+                      </span>
+                      
+                      {/* Skill name */}
+                      <span className="relative z-10 group-hover:text-primary transition-colors duration-300">
+                        {skill.name}
+                      </span>
+                      
+                      {/* Animated border */}
+                      <div className="absolute inset-0 rounded-full border border-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </div>
