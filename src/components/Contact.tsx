@@ -98,13 +98,13 @@ const Contact = () => {
           <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             Get In <span className="gradient-text">Touch</span>
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
+          <motion.p variants={itemVariants} className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
             Have a project in mind or just want to chat? I'd love to hear from you. 
             Let's create something amazing together.
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 justify-center lg:justify-start">
           <motion.div
             variants={itemVariants}
             initial="hidden"
@@ -188,14 +188,14 @@ const Contact = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             transition={{ delay: 0.5 }}
-            className="space-y-6 sm:space-y-8"
+            className="space-y-6 sm:space-y-8 flex flex-col items-center lg:items-start"
           >
             {contactInfo.map((info, index) => (
               <motion.div
                 key={info.label}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, x: 10 }}
-                className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl cursor-pointer group"
+                className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl cursor-pointer group w-full max-w-sm lg:max-w-none"
               >
                 <a href={info.href} className="flex items-center">
                   <div className="p-3 sm:p-4 bg-primary/10 rounded-lg sm:rounded-xl mr-4 sm:mr-6 group-hover:bg-primary/20 transition-colors">
@@ -211,7 +211,7 @@ const Contact = () => {
 
             <motion.div
               variants={itemVariants}
-              className="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl text-center"
+              className="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl text-center w-full max-w-sm lg:max-w-none"
             >
               <h4 className="text-lg sm:text-xl font-semibold mb-4">Let's Connect</h4>
               <p className="text-muted-foreground mb-6 text-sm sm:text-base">

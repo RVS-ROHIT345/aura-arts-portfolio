@@ -46,7 +46,7 @@ const About = () => {
           <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             About <span className="gradient-text">Me</span>
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+          <motion.p variants={itemVariants} className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             I'm a passionate full-stack developer with over 3 years of experience creating 
             innovative digital solutions. I love turning complex problems into simple, 
             beautiful, and intuitive designs.
@@ -95,7 +95,7 @@ const About = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          <motion.h3 variants={itemVariants} className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 px-4 sm:px-0">
+          <motion.h3 variants={itemVariants} className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
             Technical <span className="gradient-text">Skills</span>
           </motion.h3>
           
