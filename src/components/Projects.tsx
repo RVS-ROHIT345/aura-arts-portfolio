@@ -12,19 +12,19 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution with modern UI, secure payments, and admin dashboard. Built with React, Node.js, and PostgreSQL.',
+      title: 'Admin-Controlled E-Commerce Dashboard',
+      description: 'Developed a full-stack eCommerce platform with real-time analytics for products, users, and revenue, improving business transparency. Built scalable RESTful APIs with MongoDB and Redux, enhancing CRUD efficiency and product filtering.',
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center',
-      tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Tailwind'],
+      tech: ['React', 'Node.js', 'PostgreSQL', 'Redux ', 'Tailwind'],
       github: 'https://github.com',
       demo: 'https://demo.com',
       featured: true
     },
     {
-      title: 'Task Management App',
-      description: 'Collaborative project management tool with real-time updates, team workspaces, and advanced analytics.',
+      title: 'Student Feedback Management System',
+      description: 'Built a secure survey platform with Spring Boot and MySQL to manage student feedback efficiently. Designed Angular dashboards with advanced validation, reducing administrative errors and streamlining workflows.',
       image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop&crop=center',
-      tech: ['Next.js', 'Firebase', 'TypeScript', 'Framer Motion'],
+      tech: ['Angular', 'MySql', 'TypeScript', 'Spring Boot', 'Java', 'HTML', 'Bootstrap'],
       github: 'https://github.com',
       demo: 'https://demo.com'
     },
@@ -36,14 +36,14 @@ const Projects = () => {
       github: 'https://github.com',
       demo: 'https://demo.com'
     },
-    {
-      title: 'Social Media Analytics',
-      description: 'Comprehensive analytics platform for social media insights with beautiful data visualizations.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=center',
-      tech: ['Vue.js', 'D3.js', 'Express', 'MongoDB'],
-      github: 'https://github.com',
-      demo: 'https://demo.com'
-    }
+    // {
+    //   title: 'Social Media Analytics',
+    //   description: 'Comprehensive analytics platform for social media insights with beautiful data visualizations.',
+    //   image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=center',
+    //   tech: ['Vue.js', 'D3.js', 'Express', 'MongoDB'],
+    //   github: 'https://github.com',
+    //   demo: 'https://demo.com'
+    // }
   ];
 
   const containerVariants = {

@@ -231,7 +231,10 @@ const Hero = () => {
                       
                       {/* Icon */}
                       <span className="text-lg group-hover:scale-110 transition-transform duration-300 relative z-10">
-                        {typeof skill.icon === 'string' ? skill.icon : <skill.icon className="w-4 h-4" />}
+                        {typeof skill.icon === 'string' ? skill.icon : (() => {
+                          const IconComponent = skill.icon as React.ComponentType<{ className: string }>;
+                          return <IconComponent className="w-4 h-4" />;
+                        })()}
                       </span>
                       
                       {/* Skill name */}
